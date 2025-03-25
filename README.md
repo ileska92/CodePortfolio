@@ -17,7 +17,7 @@ Some are more fine tuned than others.
 
 #SaveSlotsMenu is the parent script for above that controls the load game menu logic. Contains some of the data fetch and loading logic
 
-#SpriteStateSwap is used in a button to modify image depending on wanted button status; active or inactive.
+#SpriteStateSwap is used in a button to modify image depending on preferred button status; active or inactive.
 
 #TabButtons simple script for tab behavior with mouse
 
