@@ -1,5 +1,5 @@
 # CodePortfolio
-Portfolio with C# script from different projects.
+Portfolio with C# script from different Unity projects.
 
 Scripts are examples of what I have done, they are not in any particular order. 
 
