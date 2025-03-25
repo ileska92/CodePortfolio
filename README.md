@@ -30,3 +30,5 @@ ___
 #TabGroup - parent script for tab logic
 
 #GamepadTabSwitcher - contains logic for tab switching using a gamepad
+
+#UIManager - Biggest Game UI script that controls most of the UI events. Quite messy, could be more simpler. Would also like to improve this.
