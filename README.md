@@ -11,6 +11,7 @@ ___
 #SelectHandler - Script is used for gamepad input in inventory system to pick up, equip or drop items. One of the scripts which I'm working towards to in other scripts also, so I can have enough, but not too many, comments on what logic is going on in the function.
 
 ___
+#Health - Player health script
 
 #CameraZoomOut - script is a simple script for my game start where the camera will move from the player position to further away. Has an option to toggle this effect.
 
