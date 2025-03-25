@@ -13,22 +13,22 @@ ___
 ___
 #Health - Player health script
 
-#CameraZoomOut - script is a simple script for my game start where the camera will move from the player position to further away. Has an option to toggle this effect.
+#CameraZoomOut - Script is a simple script for my game start where the camera will move from the player position to further away. Has an option to toggle this effect.
 
-#CartographerScript - is used on an NPC which will help the player to change the size of the playable map
+#CartographerScript - Used on an NPC which will help the player to change the size of the playable map
 
-#MapSizesInfo - applies the data from ScriptableObject MapSize to my component
+#MapSizesInfo - Applies the data from ScriptableObject MapSize to my component
 
-#SaveSlot - script for my buttons that I use to display saved data content in Main menu where you can choose which save to load.
+#SaveSlot - Script for my buttons that I use to display saved data content in Main menu where you can choose which save to load.
 
-#SaveSlotsMenu - parent script for above that controls the load game menu logic. Contains some of the data fetch and loading logic
+#SaveSlotsMenu - Parent script for above that controls the load game menu logic. Contains some of the data fetch and loading logic
 
-#SpriteStateSwap - used in a button to modify image depending on preferred button status; active or inactive.
+#SpriteStateSwap - Used in a button to modify image depending on preferred button status; active or inactive.
 
-#TabButtons - simple script for tab behavior with mouse
+#TabButtons - Simple script for tab behavior with mouse
 
-#TabGroup - parent script for tab logic
+#TabGroup - Parent script for tab logic
 
-#GamepadTabSwitcher - contains logic for tab switching using a gamepad
+#GamepadTabSwitcher - Contains logic for tab switching using a gamepad
 
 #UIManager - Biggest Game UI script that controls most of the UI events. Quite messy, could be more simpler. Would also like to improve this.
