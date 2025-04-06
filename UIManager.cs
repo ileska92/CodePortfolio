@@ -18,6 +18,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI maxHealth;
     [SerializeField] private TextMeshProUGUI playerDamage;
     [SerializeField] private TextMeshProUGUI playerDamageModifier;
+    [SerializeField] private TextMeshProUGUI movementSpeed;
 
     [Header("Resistances")]
     [SerializeField] private TextMeshProUGUI physicalRes;
@@ -27,7 +28,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI lightningRes;
     [SerializeField] private TextMeshProUGUI darkRes;
     [SerializeField] private TextMeshProUGUI magicRes;
-    private Color resistanceTextColor;
 
     [Header("PlayerClass")]
     [SerializeField] private TextMeshProUGUI className;
@@ -113,8 +113,9 @@ public class UIManager : MonoBehaviour
         maxHealth.text = GameManager.instance.health.currentHealth.ToString("0") + " / " + GameManager.instance.health.maxHealth.ToString("0");
         playerDamage.text = GameManager.instance.playerVariables.damage.ToString("0.0");
         playerDamageModifier.text = (GameManager.instance.playerVariables.damageModifier * 100).ToString("0") + " %";
-        DamageColor(GameManager.instance.playerVariables.damageModifier);
-        playerDamageModifier.color = resistanceTextColor;
+        TextColor(GameManager.instance.playerVariables.damageModifier, true, playerDamageModifier);
+        movementSpeed.text = (GameManager.instance.playerVariables.speedMultiplier * 100).ToString("0") + " %";
+        TextColor(GameManager.instance.playerVariables.speedMultiplier, true, movementSpeed);
 
         stamina.text = playerClass.stamina.ToString();
         strength.text = playerClass.strength.ToString();
@@ -124,66 +125,56 @@ public class UIManager : MonoBehaviour
     }
     private void UpdateResistanceDisplay()
     {
-        PlayerController playerController = GameManager.instance.playerController;
         var resistance = GameManager.instance.playerVariables;
 
         physicalRes.text = (100 - resistance.physicalDR * 100).ToString("0") + " %";
-        ResistanceColor(resistance.physicalDR);
-        physicalRes.color = resistanceTextColor;
+        TextColor(resistance.physicalDR, false, physicalRes);
 
         iceRes.text = (100 - resistance.frostDR * 100).ToString("0") + " %";
-        ResistanceColor(resistance.frostDR);
-        iceRes.color = resistanceTextColor;
+        TextColor(resistance.frostDR, false, iceRes);
 
         fireRes.text = (100 - resistance.fireDR * 100).ToString("0") + " %";
-        ResistanceColor(resistance.fireDR);
-        fireRes.color = resistanceTextColor;
+        TextColor(resistance.fireDR, false, fireRes);
 
         poisonRes.text = (100 - resistance.poisonDR * 100).ToString("0") + " %";
-        ResistanceColor(resistance.poisonDR);
-        poisonRes.color = resistanceTextColor;
+        TextColor(resistance.poisonDR, false, poisonRes);
 
         lightningRes.text = (100 - resistance.electricDR * 100).ToString("0") + " %";
-        ResistanceColor(resistance.electricDR);
-        lightningRes.color = resistanceTextColor;
+        TextColor(resistance.electricDR, false, lightningRes);
 
         darkRes.text = (100 - resistance.darkDR * 100).ToString("0") + " %";
-        ResistanceColor(resistance.darkDR);
-        darkRes.color = resistanceTextColor;
+        TextColor(resistance.darkDR, false, darkRes);
 
         magicRes.text = (100 - resistance.magicDR * 100).ToString("0") + " %";
-        ResistanceColor(resistance.magicDR);
-        magicRes.color = resistanceTextColor;
+        TextColor(resistance.magicDR, false, magicRes);
     }
 
-    private void ResistanceColor(float value)
+    private void TextColor(float value, bool valueOverHundredIsGreen, TextMeshProUGUI text)
     {
         switch (value)
         {
             case 1: 
-                resistanceTextColor = Color.white;
+                text.color = Color.white;
                 break;
             case > 1: 
-                resistanceTextColor = Color.red;
+                if(valueOverHundredIsGreen)
+                {
+                    text.color = Color.green;
+                }
+                else
+                {
+                    text.color = Color.red;
+                }
                 break;
             case < 1:
-                resistanceTextColor = Color.green;
-                break;
-        }
-    }
-
-    private void DamageColor(float value)
-    {
-        switch (value)
-        {
-            case 1:
-                resistanceTextColor = Color.white;
-                break;
-            case > 1:
-                resistanceTextColor = Color.green;
-                break;
-            case < 1:
-                resistanceTextColor = Color.red;
+                if(valueOverHundredIsGreen)
+                {
+                    text.color = Color.red;
+                }
+                else
+                {
+                    text.color = Color.green;
+                }
                 break;
         }
     }
